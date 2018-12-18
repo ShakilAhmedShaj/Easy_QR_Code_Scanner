@@ -1,6 +1,7 @@
 package com.t3ch.shaj.easy_qr_code_scanner.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -58,12 +59,26 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myAdapterViewHolde
         TextView textViewCode, textViewType;
         CardView cardView;
 
-        public myAdapterViewHolder(@NonNull View itemView) {
+        public myAdapterViewHolder(@NonNull final View itemView) {
             super(itemView);
 
             textViewCode = itemView.findViewById(R.id.TV1);
             textViewType = itemView.findViewById(R.id.TV2);
             cardView = itemView.findViewById(R.id.CVid);
+
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String type = listItemsArrayList.get(getAdapterPosition()).getType();
+                    Intent i = new Intent();
+
+                    i.setAction(Intent.ACTION_SEND);
+                    i.putExtra(Intent.EXTRA_TEXT, type);
+                    i.setType("text/plain");
+                    itemView.getContext().startActivity(i);
+
+                }
+            });
 
 
         }
