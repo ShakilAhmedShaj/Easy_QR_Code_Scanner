@@ -64,7 +64,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myAdapterViewHolde
 
             textViewCode = itemView.findViewById(R.id.TV1);
             textViewType = itemView.findViewById(R.id.TV2);
-            cardView = itemView.findViewById(R.id.CVid);
+            cardView =  itemView.findViewById(R.id.CVid);
 
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override

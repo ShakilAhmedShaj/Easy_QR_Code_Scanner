@@ -30,7 +30,7 @@ public class dbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(" create table " + TABLE_NAME + "( id INTEGER PRIMARY KEY AUTOINCREMENT, " + " code TEXT, type TEXT)");
 
-        //db.execSQL("create table "+ TABLE_NAME+ "(id )");
+
 
 
     }
@@ -67,7 +67,7 @@ public class dbHelper extends SQLiteOpenHelper {
 
         Cursor cursor = database.rawQuery("Select * from " + TABLE_NAME, null);
 
-        if (cursor == null) {
+        if (cursor != null) {
             while (cursor.moveToNext()) {
                 int id = cursor.getInt(0);
                 String code = cursor.getString(1);
@@ -90,7 +90,7 @@ public class dbHelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        db.execSQL("DELETE FROM "+ TABLE_NAME+"- WHERE "+ COL_1+"-'"+value+"'");
+        db.execSQL("DELETE FROM "+ TABLE_NAME+"= WHERE "+ COL_1+"='"+value+"'");
 
 
 

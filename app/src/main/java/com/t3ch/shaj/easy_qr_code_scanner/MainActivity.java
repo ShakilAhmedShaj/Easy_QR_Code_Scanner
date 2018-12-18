@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         //swipe action delete
 
-        new ItemTouchHelper(new ItemTouchHelper.Callback() {
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
                 return 0;
@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
                     arrayList.clear();
                     arrayList = helper.getAllInfo();
                     myAdapter = new myAdapter(arrayList, this);
+                    recyclerView.setAdapter(myAdapter);
                     myAdapter.notifyDataSetChanged();
                 }
             }
