@@ -15,9 +15,11 @@ public class dbHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "mytable";
     public static final String DATABASE_NAME = "qrdb.db";
 
+
     public static final String COL_1 = "id";
     public static final String COL_2 = "code";
     public static final String COL_3 = "type";
+
 
 
     public dbHelper(Context context) {
@@ -26,7 +28,9 @@ public class dbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(" create table " + TABLE_NAME + "( id PRIMARY KEY AUTOINCREMENT, " + " code TEXT, type TEXT)");
+        db.execSQL(" create table " + TABLE_NAME + "( id INTEGER PRIMARY KEY AUTOINCREMENT, " + " code TEXT, type TEXT)");
+
+        //db.execSQL("create table "+ TABLE_NAME+ "(id )");
 
 
     }
